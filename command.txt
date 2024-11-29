@@ -5,7 +5,7 @@ sudo apt install vim samba
 
 sudo vim /etc/gdm3/custom.conf
 
-
+install chrome 
 
 
 
