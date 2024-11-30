@@ -7,7 +7,7 @@ sudo vim /etc/gdm3/custom.conf
 
 install chrome 
 
-
+install rustdesk
 
 
 
