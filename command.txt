@@ -9,5 +9,10 @@ install chrome
 
 install rustdesk
 
-
-
+install google-pinyin inputmethod
+setup language chinese
+sudo apt install fcitx
+im-config
+sudo apt install fcitx-googlepinyin
+fcitx-config-gtk3
+fcitx-configtool
