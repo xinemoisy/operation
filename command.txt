@@ -16,3 +16,5 @@ im-config
 sudo apt install fcitx-googlepinyin
 fcitx-config-gtk3
 fcitx-configtool
+
+sudo apt install git
