@@ -18,3 +18,4 @@ fcitx-config-gtk3
 fcitx-configtool
 
 sudo apt install git
+sudo dpkg -i code_1.95.3-1731513102_amd64.deb
