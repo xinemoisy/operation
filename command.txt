@@ -19,3 +19,8 @@ fcitx-configtool
 
 sudo apt install git
 sudo dpkg -i code_1.95.3-1731513102_amd64.deb
+
+ssh-keygen -t rsa -C "someone@gmail.com"
+git config --global user.name "someone"
+git config --global user.email "someone@gmail.com"
+git remote add origin git-url
