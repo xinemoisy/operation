@@ -8,6 +8,8 @@ sudo vim /etc/gdm3/custom.conf
 install chrome 
 
 install rustdesk
+pm2 start hbbr
+pm2 start hbbs
 
 install google-pinyin inputmethod
 setup language chinese
