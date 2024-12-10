@@ -31,3 +31,4 @@ type $command
 which $command
 apropos $command  ==  man -k $command
 locate $command
+stat $filename
