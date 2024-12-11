@@ -32,3 +32,4 @@ which $command
 apropos $command  ==  man -k $command
 locate $command
 stat $filename
+cat file
