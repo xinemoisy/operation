@@ -33,3 +33,4 @@ apropos $command  ==  man -k $command
 locate $command
 stat $filename
 cat file
+tail -n 10 file
