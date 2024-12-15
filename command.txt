@@ -36,3 +36,4 @@ cat file
 tail -n 10 file
 find / -name '*.c'
 wc < myfile
+bash -c 'exit -2'
