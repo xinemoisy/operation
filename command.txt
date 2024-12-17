@@ -40,3 +40,5 @@ bash -c 'exit -2'
 
 myvar=something
 echo $myvar
+
+sed -e
