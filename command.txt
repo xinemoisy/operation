@@ -42,3 +42,5 @@ myvar=something
 echo $myvar
 
 sed -e
+
+unset myvar
