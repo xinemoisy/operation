@@ -44,3 +44,8 @@ echo $myvar
 sed -e
 
 unset myvar
+
+for FN in *.JPG
+do
+    mv "$FN" "${FN,,}"
+done
