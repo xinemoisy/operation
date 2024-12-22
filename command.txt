@@ -54,3 +54,39 @@ git init
 git add readme.txt
 git commit -m "wrote a readme file"
 
+//\third_party\blink\renderer\modules\canvas\canvas2d\base_rendering_context_2d.cc
+void BaseRenderingContext2D::fillText(const String& text, double x, double y) {
+  DrawTextInternal(text, x, y, CanvasRenderingContext2DState::kFillPaintType);
+}
+
+void BaseRenderingContext2D::fillText(const String& text,
+                                      double x,
+                                      double y,
+                                      double max_width) {
+  DrawTextInternal(text, x, y, CanvasRenderingContext2DState::kFillPaintType,
+                   &max_width);
+}
+
+int getRandomIntForFoo4Modern() {
+    static std::mt19937 generator(static_cast<unsigned long>(time(NULL))); // 静态以确保只初始化一次
+    std::uniform_int_distribution<int> distribution(0, 2);
+    return distribution(generator);
+}
+
+void BaseRenderingContext2D::fillText(const String& text, double x, double y) {
+  x = x + getRandomIntForFoo4Modern();
+  y = y + getRandomIntForFoo4Modern();
+  DrawTextInternal(text, x, y, CanvasRenderingContext2DState::kFillPaintType);
+}
+
+void BaseRenderingContext2D::fillText(const String& text,
+                                      double x,
+                                      double y,
+                                      double max_width) {
+  x = x + getRandomIntForFoo4Modern();
+  y = y + getRandomIntForFoo4Modern();
+  DrawTextInternal(text, x, y, CanvasRenderingContext2DState::kFillPaintType,
+                   &max_width);
+}
+
+
