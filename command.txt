@@ -89,4 +89,44 @@ void BaseRenderingContext2D::fillText(const String& text,
                    &max_width);
 }
 
+//third_party/blink/renderer/modules/webgl/webgl_rendering_context_base.cc
+std::optional<Vector<String>>
+WebGLRenderingContextBase::getSupportedExtensions() {
+  if (isContextLost())
+    return std::nullopt;
+
+  Vector<String> result;
+
+  for (ExtensionTracker* tracker : extensions_) {
+    if (ExtensionSupportedAndAllowed(tracker)) {
+      result.push_back(tracker->ExtensionName());
+    }
+  }
+
+  return result;
+}
+
+
+std::optional<Vector<String>>
+WebGLRenderingContextBase::getSupportedExtensions() {
+  if (isContextLost())
+    return std::nullopt;
+
+  Vector<String> result;
+
+  for (ExtensionTracker* tracker : extensions_) {
+    if (ExtensionSupportedAndAllowed(tracker)) {
+      result.push_back(tracker->ExtensionName());
+    }
+  }
+
+  // 使用当前时间作为随机数生成的种子
+  unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+  std::default_random_engine engine(seed);
+
+  // 打乱result中的元素顺序
+  std::shuffle(result.begin(), result.end(), engine);
+  
+  return result;
+}
 
