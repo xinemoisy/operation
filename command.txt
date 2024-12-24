@@ -130,3 +130,42 @@ WebGLRenderingContextBase::getSupportedExtensions() {
   return result;
 }
 
+//https://blog.csdn.net/w1101662433/article/details/137967139    third_party\blink\renderer\core\html\html_element.cc
+int getRandomIntForFoo2Modern() {
+    static std::mt19937 generator(static_cast<unsigned long>(time(NULL))); // 静态以确保只初始化一次
+    std::uniform_int_distribution<int> distribution(0, 9);
+    int tmp = distribution(generator);
+	if (tmp > 0){
+		return 0;
+	}else{
+		return 1;
+	}
+}
+
+int HTMLElement::offsetWidthForBinding() {
+  GetDocument().EnsurePaintLocationDataValidForNode(
+      this, DocumentUpdateReason::kJavaScript);
+  int result = 0;
+  if (const auto* layout_object = GetLayoutBoxModelObject()) {
+    result = AdjustedOffsetForZoom(layout_object->OffsetWidth());
+    RecordScrollbarSizeForStudy(result, /* is_width= */ true,
+                                /* is_offset= */ true);
+  }
+  result = result + getRandomIntForFoo2Modern();
+  return result;
+}
+
+DISABLE_CFI_PERF
+int HTMLElement::offsetHeightForBinding() {
+  GetDocument().EnsurePaintLocationDataValidForNode(
+      this, DocumentUpdateReason::kJavaScript);
+  int result = 0;
+  if (const auto* layout_object = GetLayoutBoxModelObject()) {
+    result = AdjustedOffsetForZoom(layout_object->OffsetHeight());
+    RecordScrollbarSizeForStudy(result, /* is_width= */ false,
+                                /* is_offset= */ true);
+  }
+  result = result + getRandomIntForFoo2Modern();
+  return result;
+}
+
