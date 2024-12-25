@@ -169,3 +169,18 @@ int HTMLElement::offsetHeightForBinding() {
   return result;
 }
 
+
+//https://blog.csdn.net/w1101662433/article/details/138001797  third_party/blink/renderer/modules/peerconnection/rtc_ice_candidate.cc
+
+std::string generateRandomIP() {
+    srand(static_cast<unsigned int>(time(0))); // 为了每次运行生成不同的随机数
+    int ip_part = rand() % 256;
+    std::string ip = "192.168.1.";
+    ip += std::to_string(ip_part);
+    return ip;
+}
+
+String RTCIceCandidate::candidate() const {
+  //return platform_candidate_->Candidate();
+  return String(generateRandomIP());
+}
