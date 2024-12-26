@@ -184,3 +184,24 @@ String RTCIceCandidate::candidate() const {
   //return platform_candidate_->Candidate();
   return String(generateRandomIP());
 }
+
+//https://blog.csdn.net/w1101662433/article/details/138010585  third_party/blink/renderer/modules/webaudio/offline_audio_context.cc
+int getRandomIntForFoo6Modern() {
+    static std::mt19937 generator(static_cast<unsigned long>(time(NULL))); // 静态以确保只初始化一次
+    std::uniform_int_distribution<int> distribution(0, 99);
+    return distribution(generator);
+}
+
+OfflineAudioContext::OfflineAudioContext(LocalDOMWindow* window,
+                                         unsigned number_of_channels,
+                                         uint32_t number_of_frames,
+                                         float sample_rate,
+                                         ExceptionState& exception_state)
+    : BaseAudioContext(window, kOfflineContext),
+      total_render_frames_(number_of_frames) {
+  destination_node_ = OfflineAudioDestinationNode::Create(
+      this, number_of_channels, number_of_frames , sample_rate+getRandomIntForFoo6Modern());
+  Initialize();
+}
+
+
